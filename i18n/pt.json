@@ -1,0 +1,12 @@
+{
+    "slashcommand_params": "Digite sua pesquisa",
+    "command_description": "Interage com o Maxicon",
+    "user_alias_label": "Nome de usuário",
+    "user_alias_description": "The username alias that will be shown in the messages sent by this app",
+    "user_avatar_label": "Imagem",
+    "user_avatar_description": "The user avatar that will be shown in the messages sent by this app",
+    "passwd_alias": "Senha",
+    "passwd_alias_description": "Senha do Usuário do confluence",
+    "url_alias": "Url",
+    "url_alias_description": "Url do confluence"
+}

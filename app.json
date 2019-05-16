@@ -1,0 +1,15 @@
+{
+    "id": "84df8391-a821-4ffa-a518-8d3d1778f885",
+    "version": "0.0.1",
+    "requiredApiVersion": "^1.2.1",
+    "iconFile": "icon.png",
+    "author": {
+        "name": "marcos.molina",
+        "homepage": "www.maxiconsystems.com.br",
+        "support": "www.maxiconsystems.com.br"
+    },
+    "name": "maxicon",
+    "nameSlug": "maxicon",
+    "classFile": "MaxiconApp.ts",
+    "description": "Plugin para pesquisa no confluence, desenvolvido pela Maxicon Sistemas"
+}
