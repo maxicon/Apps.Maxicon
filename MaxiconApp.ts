@@ -27,7 +27,7 @@ export class MaxiconApp extends App {
         configuration.settings.provideSetting({
             id: 'user_alias',
             type: SettingType.STRING,
-            packageValue: 'marcos.molina',
+            packageValue: 'username',
             required: true,
             public: false,
             i18nLabel: 'user_alias_label',
@@ -37,7 +37,7 @@ export class MaxiconApp extends App {
         configuration.settings.provideSetting({
             id: 'passwd_alias',
             type: SettingType.STRING,
-            packageValue: 'molina25',
+            packageValue: 'password',
             required: true,
             public: false,
             i18nLabel: 'passwd_alias',

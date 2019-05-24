@@ -8,7 +8,7 @@ export class ConfluenceSlashCommand implements ISlashCommand {
     public i18nParamsExample = 'slashcommand_params';
     public i18nDescription = 'command_description';
     public providesPreview = true;
-    public permission = 'admin'
+    public permission = 'view-commmand-maxicon';
 
     constructor(private readonly app: MaxiconApp) { }
 
