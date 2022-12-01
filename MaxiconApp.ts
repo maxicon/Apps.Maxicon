@@ -5,9 +5,10 @@ import { App } from '@rocket.chat/apps-engine/definition/App';
 import { IAppInfo } from '@rocket.chat/apps-engine/definition/metadata';
 
 import { SettingType } from '@rocket.chat/apps-engine/definition/settings';
-import { Getter } from './helper/Getter';
+import { Getter } from './commands/Getter';
 import { ManualSlashCommand } from './commands/manual';
 import { ConfluenceSlashCommand } from './commands/confluence';
+import { StatusProjetoSlashCommand } from './commands/statusprojeto';
 
 export class MaxiconApp extends App {
 
@@ -55,6 +56,7 @@ export class MaxiconApp extends App {
         });
         configuration.slashCommands.provideSlashCommand(new ManualSlashCommand(this));
         configuration.slashCommands.provideSlashCommand(new ConfluenceSlashCommand(this));
+        configuration.slashCommands.provideSlashCommand(new StatusProjetoSlashCommand(this));
 
 
     }

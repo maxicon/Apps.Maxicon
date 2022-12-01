@@ -1,7 +1,8 @@
 import { ISlashCommand, SlashCommandContext, ISlashCommandPreview, ISlashCommandPreviewItem } from '@rocket.chat/apps-engine/definition/slashcommands';
 import { IHttp, IModify, IPersistence, IRead } from '@rocket.chat/apps-engine/definition/accessors';
 import { MaxiconApp } from '../MaxiconApp';
-import { CommandHelper } from '../helper/commandHelper';
+import { CommandHelper } from "./commandHelper";
+//import { CommandHelper } from '../helper/commandHelper';
 
 export class ManualSlashCommand implements ISlashCommand {
     public command = 'manual';

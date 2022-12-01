@@ -3,8 +3,8 @@ import { IHttp, IModify, IPersistence, IRead } from '@rocket.chat/apps-engine/de
 import { MaxiconApp } from '../MaxiconApp';
 import { CommandHelper } from "./commandHelper";
 
-export class ConfluenceSlashCommand implements ISlashCommand {
-    public command = 'confluence';
+export class StatusProjetoSlashCommand implements ISlashCommand {
+    public command = 'statusprojeto';
     public i18nParamsExample = 'slashcommand_params';
     public i18nDescription = 'command_description';
     public providesPreview = true;
@@ -13,17 +13,13 @@ export class ConfluenceSlashCommand implements ISlashCommand {
     constructor(private readonly app: MaxiconApp) { }
 
     public async executor(context: SlashCommandContext, read: IRead, modify: IModify, http: IHttp, persis: IPersistence): Promise<void> {
-        throw new Error('Method not implemented.');
+        this.app.getLogger().info(context.getSender().username);
+        this.app.getLogger().info(context.getArguments().toString());
+        const command = new CommandHelper(this.app);
+
+        command.getStatus(http, context.getSender().username,context.getArguments().toString());
+        
     }
 
-    async previewer(context: SlashCommandContext, read: IRead, modify: IModify, http: IHttp, persis: IPersistence): Promise<ISlashCommandPreview> {
-        const command = new CommandHelper(this.app);
-        return command.previewer(context, read, modify, http, persis);
-    }
-
-    public async executePreviewItem(item: ISlashCommandPreviewItem, context: SlashCommandContext, read: IRead,
-        modify: IModify, http: IHttp, persis: IPersistence): Promise<void> {
-        const command = new CommandHelper(this.app);
-        return command.executePreviewItem(item, context, read, modify, http, persis);
-    }
+    
 }
