@@ -34,7 +34,7 @@ export class  CommandHelper{
     async getStatus(http: IHttp, user: string, param: string){
      
         try {
-            await http.get("http://192.168.180.127:5000/statusprojeto/"+param+"?name="+user);
+            await http.get("https://sds.maxiconsystems.com.br/statusprojeto/"+param+"?name="+user);
         } catch (e) {
             this.app.getLogger().error('Failed on something:', e);
             return {
