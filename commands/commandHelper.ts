@@ -31,10 +31,56 @@ export class  CommandHelper{
     }
 
 
-    async getStatus(http: IHttp, user: string, param: string){
-     
+    async getStatus(http: IHttp, user: string, param: string, paramStatus: string, read: IRead){
+        this.app.getLogger().info("entrou");
         try {
-            await http.get("https://sds.maxiconsystems.com.br/statusprojeto/"+param+"?name="+user);
+            this.app.getLogger().info("entrou2");
+            
+            let url: string = await read.getEnvironmentReader().getSettings().getValueById('url_status');
+
+            url = url+param+"?name="+user+paramStatus;
+            this.app.getLogger().info("entrou 3= "+url);
+            await http.get(url);
+        } catch (e) {
+            this.app.getLogger().error('Failed on something:', e);
+            return {
+                i18nTitle: 'ERROR',
+                items: new Array(),
+            };
+        }
+
+       return null;
+    }
+
+    async getStatusPacote(http: IHttp, user: string, param: string, paramStatus: string, read: IRead){
+
+        try {
+            let url: string = await read.getEnvironmentReader().getSettings().getValueById('url_status');
+
+            url = url+param+"?name="+user+paramStatus;
+            
+            await http.get(url);
+
+        } catch (e) {
+            this.app.getLogger().error('Failed on something:', e);
+            return {
+                i18nTitle: 'ERROR',
+                items: new Array(),
+            };
+        }
+
+       return null;
+    }
+
+    async getStatusPortifolio(http: IHttp, user: string, param: string, paramStatus: string, read: IRead){
+
+        try {
+            let url: string = await read.getEnvironmentReader().getSettings().getValueById('url_statusportifolio');
+
+            url = url+param+"?name="+user+paramStatus;
+            
+            await http.get(url);
+
         } catch (e) {
             this.app.getLogger().error('Failed on something:', e);
             return {

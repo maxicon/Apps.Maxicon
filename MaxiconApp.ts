@@ -9,6 +9,8 @@ import { Getter } from './commands/Getter';
 import { ManualSlashCommand } from './commands/manual';
 import { ConfluenceSlashCommand } from './commands/confluence';
 import { StatusProjetoSlashCommand } from './commands/statusprojeto';
+import { StatusPortifolioSlashCommand } from './commands/statusportifolio';
+import { StatusPacoteSlashCommand } from './commands/statuspacote';
 
 export class MaxiconApp extends App {
 
@@ -54,9 +56,35 @@ export class MaxiconApp extends App {
             i18nLabel: 'passwd_alias',
             i18nDescription: 'passwd_alias_description',
         });
+
+        configuration.settings.provideSetting({
+            id: 'url_status',
+            type: SettingType.STRING,
+            //packageValue: 'http://127.0.0.1:5000/statusprojeto/',
+            packageValue: 'https://sds.maxiconsystems.com.br/statusprojeto/',
+            required: true,
+            public: false,
+            i18nLabel: 'passwd_alias',
+            i18nDescription: 'passwd_alias_description',
+        });
+
+        configuration.settings.provideSetting({
+            id: 'url_statusportifolio',
+            type: SettingType.STRING,
+            //packageValue: 'http://127.0.0.1:5000/statusportifolio/',
+            packageValue: 'http://192.168.180.127:5000/statusportifolio',
+            required: true,
+            public: false,
+            i18nLabel: 'passwd_alias',
+            i18nDescription: 'passwd_alias_description',
+        });
+
         configuration.slashCommands.provideSlashCommand(new ManualSlashCommand(this));
         configuration.slashCommands.provideSlashCommand(new ConfluenceSlashCommand(this));
+        configuration.slashCommands.provideSlashCommand(new StatusPacoteSlashCommand(this));
         configuration.slashCommands.provideSlashCommand(new StatusProjetoSlashCommand(this));
+        configuration.slashCommands.provideSlashCommand(new StatusPortifolioSlashCommand(this));
+        
 
 
     }
